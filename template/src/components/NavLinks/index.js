@@ -6,7 +6,7 @@ const NavLinks = () => (
         <li>
             <NavLink
             exact
-            to="/">Home</NavLink>
+            to="/"><img id="logo" src="../logo.svg" alt="logo"></img></NavLink>
         </li>
         <li>
         <NavLink
