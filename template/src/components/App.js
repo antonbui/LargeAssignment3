@@ -7,7 +7,9 @@ import Bubbles from './Bubbles';
 import Bundles from './Bundles';
 import About from './About';
 import Cart from './Cart';
-import ProductItemDetails from './ProductItemDetails'
+import ProductItemDetails from './ProductItemDetails';
+import Checkout from './Checkout';
+import Delivery from './Delivery';
 
 const App = () => {
     return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route exact path="/about" component={ About } />
           <Route exact path="/cart" component={ Cart } />
           <Route exact path="/bubbles/:productItemId" component={ ProductItemDetails } />
+          <Route exact path="/checkout" component={ Checkout } />
+          <Route exact path="/delivery" component={ Delivery } />
         </Switch>
       </Container>
     </div>
