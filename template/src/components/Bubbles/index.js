@@ -10,7 +10,7 @@ const Bubbles = () => {
     fetchData();
 
     return (
-    <div>
+    <div className="bubble-container">
         <h1>Bubbles</h1>
         <ProductList
         bubbles={ bubbles } />
