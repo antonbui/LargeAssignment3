@@ -1,1 +1,26 @@
 /* You can add styles here */
+
+#logo {
+    height: 3em;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: rgb(250, 217, 217) !important;  
+}
+
+ul.navlinks li {
+    display: inline-block;
+    padding-right: 10px;
+    color: white;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 1200px;
+}

@@ -11,7 +11,7 @@ const NavLinks = () => (
         <li>
         <NavLink
             exact
-            to="/bubbles">Bubbles</NavLink>
+            to="/bubbles">Products</NavLink>
         </li>
         <li>
         <NavLink
