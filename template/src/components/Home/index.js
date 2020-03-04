@@ -7,7 +7,6 @@ const Home = () => (
         <h1>Welcome to Bubblify</h1>
         <p>The place for all your bubble needs</p>
         <Link
-            exact
             to="/bubbles">Start your shopping here</Link>
     </div> 
 );
