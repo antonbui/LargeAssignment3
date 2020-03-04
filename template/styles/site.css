@@ -8,7 +8,7 @@ ul {
     list-style: none;
 }
 
-a {
+li a {
     color: rgb(250, 217, 217) !important;  
 }
 
@@ -23,4 +23,42 @@ ul.navlinks li {
     align-items: center;
     margin: auto;
     width: 1200px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-product {
+    flex: 1 0 25%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.bubble-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-wrap {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.info-wrap a {
+    color: black !important;
 }

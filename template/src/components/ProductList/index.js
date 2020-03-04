@@ -2,7 +2,7 @@ import React from 'react';
 import ProductItem from '../ProductItem';
 
 const ProductList = ({ bubbles }) => (
-    <div>
+    <div className="bubble-list">
     { bubbles.map(b => <ProductItem 
     key={ b.id }
     id={ b.id }

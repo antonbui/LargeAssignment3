@@ -12,7 +12,6 @@ const Bubbles = () => {
     return (
     <div>
         <h1>Bubbles</h1>
-        <p>Here comes the subpage for bubbles</p>
         <ProductList
         bubbles={ bubbles } />
     </div>
