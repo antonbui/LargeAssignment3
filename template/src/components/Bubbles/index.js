@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductList from '../ProductList';
 class Bubbles extends React.Component{
     state = {
@@ -14,11 +14,11 @@ class Bubbles extends React.Component{
 
     addToCart(productId) {
         let temp = [];
-        if(localStorage.getItem('idItemCart') !== null){
+        if(localStorage.getItem('idItemInCart') !== null){
             temp = JSON.parse(localStorage.getItem('idItemInCart'));
         }
         temp.push(productId);
-        // console.log("temp = " + typeof(temp));
+        // console.log("temp = " + JSON.stringify(temp));
         localStorage.setItem('idItemInCart', JSON.stringify(temp));
         // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idItemInCart')));
         // alert(productId);
