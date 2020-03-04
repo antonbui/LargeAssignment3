@@ -28,10 +28,21 @@ ul.navlinks li {
     width: 1200px;
 }
 
-img {
+.list-img {
     height: 100px;
     width: 100px;
     display: flex;
+}
+
+.details-img{
+    height: 400px;
+    width: 400px;
+    display: flex;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
 }
 
 .text {

@@ -7,6 +7,7 @@ import Bubbles from './Bubbles';
 import Bundles from './Bundles';
 import About from './About';
 import Cart from './Cart';
+import ProductItemDetails from './ProductItemDetails'
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path="/bundles" component={ Bundles } />
           <Route exact path="/about" component={ About } />
           <Route exact path="/cart" component={ Cart } />
+          <Route exact path="/bubbles/:productItemId" component={ ProductItemDetails } />
         </Switch>
       </Container>
     </div>

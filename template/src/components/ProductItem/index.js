@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProductItem = ({ id, name, description, price, image }) => (
     <div className="card card-product">
-        <div className="img-wrap"><img src={ image } ></img></div>
+        <div className="img-wrap"><img src={ image } className="list-img"></img></div>
         <figcaption className="info-wrap">
             <h3><Link to={`/bubbles/${id}`}>{ name }</Link></h3>
         </figcaption>
