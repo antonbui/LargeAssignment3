@@ -2,17 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 const Bubbles = () => {
     const [bubbles, setData] = useState([]);
-    
-    // useEffect(() => {
-    //     fetchData();
-    // });
-    
-    // async function fetchData(){
-    //     const res = await fetch("http://localhost:3500/api/bubbles");
-    //     res
-    //       .json()
-    //       .then(res => setData(res))
-    //   };
+
+    function fetchData(){
+        const res = fetch("http://localhost:3500/api/bubbles").then((res) => res.json()).then((res) => setData(res));
+    };
+
+    fetchData();
 
     return (
     <div>
