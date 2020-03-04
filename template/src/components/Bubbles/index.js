@@ -1,21 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import ProductList from '../ProductList';
-const Bubbles = () => {
-    const [bubbles, setData] = useState([]);
-
-    function fetchData(){
-        const res = fetch("http://localhost:3500/api/bubbles").then((res) => res.json()).then((res) => setData(res));
+class Bubbles extends React.Component{
+    state = {
+        bubbles: []
     };
 
-    fetchData();
+    componentDidMount() {
+        const { match: { params } } = this.props;
+        fetch("http://localhost:3500/api/bubbles")
+            .then((res) => res.json())
+            .then((res) => this.setState({bubbles: res}));
+    }
 
-    return (
-    <div className="bubble-container">
-        <h1>Bubbles</h1>
-        <ProductList
-        bubbles={ bubbles } />
-    </div>
-    );
+    addToCart(productId) {
+        let temp = [];
+        if(localStorage.getItem('idItemCart') !== null){
+            temp = JSON.parse(localStorage.getItem('idItemInCart'));
+        }
+        temp.push(productId);
+        // console.log("temp = " + typeof(temp));
+        localStorage.setItem('idItemInCart', JSON.stringify(temp));
+        // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idItemInCart')));
+        // alert(productId);
+    }
+
+    render() {
+        const { bubbles } = this.state;
+        return (
+            <div className="bubble-container">
+                <h1>Bubbles</h1>
+                <ProductList
+                    bubbles={ bubbles }
+                    addToCart={ productId => this.addToCart(productId) }
+                />
+            </div>
+        );
+    };
 };
 
 export default Bubbles;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from '../ProductItem';
 
-const ProductList = ({ bubbles }) => (
+const ProductList = ({ bubbles, addToCart }) => (
     <div className="bubble-list">
     { bubbles.map(b => <ProductItem 
     key={ b.id }
@@ -10,6 +10,7 @@ const ProductList = ({ bubbles }) => (
     description={ b.description }
     price={ b.price }
     image={ b.image }
+    addToCart={ addToCart }
     />)}
     </div>
 )
