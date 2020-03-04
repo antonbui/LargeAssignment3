@@ -24,7 +24,7 @@ function sumPrice(items, bubbles) {
     return sum;
 };
 
-const BundleList = ({ bundles, bubbles }) => (
+const BundleList = ({ bundles, bubbles, addToCart }) => (
     <div className="bubble-list">
     { bundles.map(b => <BundleItem 
     key={ b.id }
@@ -32,6 +32,7 @@ const BundleList = ({ bundles, bubbles }) => (
     name={ b.name }
     items={ b.items }
     sum={ sumPrice(b.items, bubbles) }
+    addToCart={ addToCart }
 
     />)}
     </div>

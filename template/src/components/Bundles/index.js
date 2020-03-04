@@ -16,6 +16,18 @@ class Bundles extends React.Component{
             .then((res) => res.json())
             .then((res) => this.setState({bubbles: res}));
     }
+
+    addToCart(productId) {
+        let temp = [];
+        if(localStorage.getItem('idBundleInCart') !== null){
+            temp = JSON.parse(localStorage.getItem('idBundleInCart'));
+        }
+        temp.push(productId);
+        // console.log("temp = " + JSON.stringify(temp));
+        localStorage.setItem('idBundleInCart', JSON.stringify(temp));
+        console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idBundleInCart')));
+        // alert(productId);
+    }
     
 
     render() {
@@ -27,6 +39,7 @@ class Bundles extends React.Component{
             <BundleList
                 bundles={ bundles } 
                 bubbles={ bubbles }
+                addToCart={ productId => this.addToCart(productId) }
                 />
         </div>
         );
