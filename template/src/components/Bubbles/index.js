@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ProductList from '../ProductList';
 const Bubbles = () => {
     const [bubbles, setData] = useState([]);
 
@@ -13,6 +13,8 @@ const Bubbles = () => {
     <div>
         <h1>Bubbles</h1>
         <p>Here comes the subpage for bubbles</p>
+        <ProductList
+        bubbles={ bubbles } />
     </div>
     );
 };
