@@ -97,3 +97,10 @@ ul.navlinks li {
 .info-wrap a {
     color: black !important;
 }
+
+.home-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
