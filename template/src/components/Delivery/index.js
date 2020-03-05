@@ -2,6 +2,8 @@ import React from 'react';
 import Form from '../Form';
 import Input from '../Input';
 import toastr from 'toastr';
+import { Link } from 'react-router-dom';
+import Review from '../Review';
 
 
 
@@ -23,6 +25,21 @@ class Delivery extends React.Component {
             postalError: '',
           },
     };
+    componentDidMount() {
+      this.setState({ fields: JSON.parse(localStorage.getItem('customerInfo'))})
+      // if (localStorage.getItem('customerInfo') != null) {
+      //   console.log("IS NULL");
+      //   var data = JSON.parse(localStorage.getItem('customerInfo'))
+      //   console.log("DATA: " + data);
+      //   if (data.name != "") {
+      //     console.log("Name NOT EMPTY");
+      //     this.setState({ fields: JSON.parse(localStorage.getItem('customerInfo'))})
+      //   }
+
+      //   console.log(this.state.fields.name);
+      // }
+
+    }
 
     onInput(e) {
         this.setState({ fields: {
@@ -54,6 +71,11 @@ class Delivery extends React.Component {
         }
     
         return true;
+      }
+
+      saveInformation() {
+        localStorage.setItem('customerInfo', JSON.stringify(this.state.fields));
+        console.log("customerInfo saved");
       }
 
     render() {
@@ -99,26 +121,31 @@ class Delivery extends React.Component {
                 htmlId="postalcode"
                 label="Postal code:"
                 onInput={ e => this.onInput(e) }/>
-            {/* <RemoteSelectItem
-                onSelect={ e => this.onInput(e) }
-                value={ city }
-                name="city"
-                defaultOption="-- No city is selected --"
-                getData={ this.getCities.bind(null, val => ({ value: val.city, label: val.city })) }
-                 /> */}
-            {/* <RemoteSelectItem
-                onSelect={ e => this.onInput(e) }
-                value={ region }
-                name="region"
-                defaultOption="-- No region is selected --"
-                getData={ countryService.getRegions.bind(null, country, val => ({ value: val.region, label: val.region })) }
-                isDisabled={ country === '' } /> */}
+                
+
+            <Link to={`/review/`}>
+              <input
+                  type="submit"
+                  value="Review!"
+                  className="btn btn-primary"
+                  style={{ float: 'right', marginTop: '10' }}
+                  onClick={ this.saveInformation() }>
+              </input>
+            </Link>
+            <Link to={`/checkout/`}>
+              <input
+                  value="Back!"
+                  className="btn btn-primary"
+                  style={{ float: 'right', marginTop: '10' }}
+                  // onClick={ }
+                  >
+              </input>
+            </Link>
             
-            <input
-                type="submit"
-                value="Order!"
-                className="btn btn-primary"
-                style={{ float: 'right', marginTop: '10' }} />
+            {/* <button
+              type="button"
+              className="btn btn-primary"
+              onClick={ }>Review</button> */}
             </Form>
         </div>
         );
