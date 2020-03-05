@@ -1,28 +1,7 @@
 import React from 'react';
 import BundleItem from '../BundleItem';
+import PropTypes from 'prop-types';
 
-// function sumPrice(items, bubbles) {
-//     var sum = 0;
-//     // console.log(items);
-//     let result = items.map(i => { 
-//         return bubbles.map(b => { 
-//             if (b.id==i) {
-//                 return b.price
-//             }
-//         })
-//     })
-        
-//     // console.log("Result: " + result);
-//     for (let i = 0; i < result.length; i++) {
-//         for (let j = 0; j < result[i].length; j++) {
-//             if (typeof result[i][j] != "undefined"){
-//                 sum = sum + result[i][j]
-//             }
-//         }
-//     }
-//     result = result.filter(word => word.length > 1);
-//     return sum;
-// };
 
 const BundleList = ({ bundles, addToCart }) => (
     <div className="bubble-list">
@@ -30,12 +9,25 @@ const BundleList = ({ bundles, addToCart }) => (
     key={ b.id }
     id={ b.id }
     name={ b.name }
-    items={ b.items }
     sum={ b.bundlePrice }
     addToCart={ addToCart }
 
     />)}
     </div>
 )
+
+BundleList.propTypes = {
+    // This is an array of objects with information about each bundle
+    bundles: PropTypes.arrayOf(PropTypes.shape({
+        // This is the id of the bundle
+        id: PropTypes.number.isRequired,
+        // this is the name of the bundle
+        name: PropTypes.string.isRequired,
+        // this is the combined price of all the bubbles in the bundle
+        sum: PropTypes.number,
+    })).isRequired,
+    // This is the function that is called when the add to cart button is pushed
+    addToCart: PropTypes.func.isRequired,
+};
 
 export default BundleList;
