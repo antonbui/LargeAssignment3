@@ -56,6 +56,8 @@ class Delivery extends React.Component {
         } else {
           console.log(this.state.fields);
           toastr.success('The form was successfully submitted!', 'Success!');
+          console.log("something happened!")
+          this.props.history.push("/review/");
         }
       }
 
@@ -89,7 +91,7 @@ class Delivery extends React.Component {
 
     render() {
         const { name, address, telephone, city, postalcode } = this.state.fields;
-        const { nameError, addressError, telephoneError, cityError, postalError } = this.state.errors
+        const { nameError, addressError, telephoneError, cityError, postalError } = this.state.errors;
         return (
         <div>
             <div><h1>Delivery</h1></div>
@@ -135,8 +137,6 @@ class Delivery extends React.Component {
                 errorMessage={ postalError }
                 onInput={ e => this.onInput(e) }/>
                 
-
-            <Link to={`/review/`}>
               <input
                   type="submit"
                   value="Review!"
@@ -144,7 +144,6 @@ class Delivery extends React.Component {
                   style={{ float: 'right', marginTop: '10' }}
                   onClick={ this.saveInformation() }>
               </input>
-            </Link>
             <Link to={`/checkout/`}>
               <input
                   value="Back!"

@@ -102,19 +102,17 @@ class Cart extends React.Component{
                     <NavLink
                     exact
                     to="/checkout">Proceed to checkout</NavLink>
+                </button><button
+                type="button"
+                className="btn btn-primary"
+                onClick={ () => this.getPreviousOrder() }
+                >Previous order
                 </button>
                 <CartList
                     bubbles={ bubbles }
                     total={ total }
                     bundles={ bundles }
                 />
-                
-                <button
-                type="button"
-                className="btn btn-primary"
-                onClick={ () => this.getPreviousOrder() }
-                >Previous order
-                </button>
             </div>
         );
     };
