@@ -119,9 +119,9 @@ class Cart extends React.Component{
         return (
             <div className="bubble-container">
                 <h1>Your shopping cart:</h1>
-                <div>
-                { this.checkoutButton() }
-                { this.previusButton() }
+                <div className="cart-btns">
+                    { this.previusButton() }
+                    { this.checkoutButton() }
                 </div>
                 <CartList
                     bubbles={ bubbles }

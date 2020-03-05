@@ -132,6 +132,8 @@ ul.navlinks li {
     float: unset;
 }
 
-#checkout-msg {
-    margin: ;
+.cart-btns {
+    float: right;
+    display: flex;
+    flex-direction: column;
 }
