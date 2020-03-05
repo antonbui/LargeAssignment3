@@ -25,7 +25,7 @@ class Bundles extends React.Component{
         temp.push(productId);
         // console.log("temp = " + JSON.stringify(temp));
         localStorage.setItem('idBundleInCart', JSON.stringify(temp));
-        console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idBundleInCart')));
+        // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idBundleInCart')));
         // alert(productId);
     }
     

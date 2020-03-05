@@ -3,7 +3,7 @@ import BundleItem from '../BundleItem';
 
 function sumPrice(items, bubbles) {
     var sum = 0;
-    console.log(items);
+    // console.log(items);
     let result = items.map(i => { 
         return bubbles.map(b => { 
             if (b.id==i) {
@@ -12,7 +12,7 @@ function sumPrice(items, bubbles) {
         })
     })
         
-    console.log("Result: " + result);
+    // console.log("Result: " + result);
     for (let i = 0; i < result.length; i++) {
         for (let j = 0; j < result[i].length; j++) {
             if (typeof result[i][j] != "undefined"){
