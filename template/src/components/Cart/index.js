@@ -95,19 +95,20 @@ class Cart extends React.Component{
         const { bubbles, total, bundles } = this.state;
         return (
             <div className="bubble-container">
-                <h1>Bubbles</h1>
-                <CartList
-                    bubbles={ bubbles }
-                    total={ total }
-                    bundles={ bundles }
-                />
+                <h1>Your shopping cart:</h1>
                 <button
                 type="button"
                 className="btn btn-primary">
                     <NavLink
                     exact
-                    to="/checkout">Checkout</NavLink>
+                    to="/checkout">Proceed to checkout</NavLink>
                 </button>
+                <CartList
+                    bubbles={ bubbles }
+                    total={ total }
+                    bundles={ bundles }
+                />
+                
                 <button
                 type="button"
                 className="btn btn-primary"

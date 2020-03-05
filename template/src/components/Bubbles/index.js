@@ -26,17 +26,18 @@ class Bubbles extends React.Component{
         return (
             <div className="bubble-container">
                 <h1>Bubbles</h1>
-                <ProductList
-                    bubbles={ bubbles }
-                    addToCart={ productId => this.addToCart(productId) }
-                />
                 <button
                 type="button"
                 className="btn btn-primary">
                     <NavLink
                     exact
-                    to="/checkout">Checkout</NavLink>
+                    to="/checkout">Proceed to checkout</NavLink>
                 </button>
+                <ProductList
+                    bubbles={ bubbles }
+                    addToCart={ productId => this.addToCart(productId) }
+                />
+                
             </div>
         );
     };

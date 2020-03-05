@@ -11,7 +11,7 @@ const ProductItem = ({ id, name, description, price, image, addToCart }) => (
         <div className="bottom-wrap">
             <div className="price-wrap h5">
                 {/* <p>{ description }</p> */}
-                <span className="price">Price: ${ price }</span>
+                <span className="price">Price: { price } kr.</span>
             </div>
         </div>
         <button
