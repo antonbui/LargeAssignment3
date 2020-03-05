@@ -127,23 +127,12 @@ class Delivery extends React.Component {
                 
               <input
                   type="submit"
-                  value="Review!"
+                  value="Review order"
                   className="btn btn-primary"
                   style={{ float: 'right', marginTop: '10' }}
                   onClick={ this.saveInformation() }
                   onChange={()=>{}}>
               </input>
-            <Link to={`/checkout/`}>
-              <input
-                  value="Back!"
-                  className="btn btn-primary"
-                  style={{ float: 'right', marginTop: '10' }}
-                  onChange={()=>{}}
-                  // onClick={ }
-                  >
-              </input>
-            </Link>
-            
             </Form>
         </div>
         );

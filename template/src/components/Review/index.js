@@ -79,12 +79,22 @@ class Review extends React.Component {
             <div><p>City: { city }</p></div>
             <div><p>Postalcode: { postalcode }</p></div>
             <Cart></Cart>
+            
             <button
                 type="button"
                 className="btn btn-primary"
                 onClick={ () => this.orderComplete() }>
             Order!
             </button>
+            <Link to={`/checkout/`}>
+              <input
+                  value="Back!"
+                  className="btn btn-primary"
+                  style={{ float: 'right', marginTop: '10' }}
+                  onChange={()=>{}}
+                  >
+              </input>
+            </Link>
         </div>
         );
     };
