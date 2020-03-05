@@ -14,7 +14,7 @@ class Bubbles extends React.Component{
 
     addToCart(productId) {
         let temp = [];
-        if(localStorage.getItem('idItemInCart') !== null){
+        if(JSON.parse(localStorage.getItem('idItemInCart')) !== null){
             temp = JSON.parse(localStorage.getItem('idItemInCart'));
         }
         temp.push(productId);
