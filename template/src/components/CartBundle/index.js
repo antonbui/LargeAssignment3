@@ -9,11 +9,11 @@ const CartBundle = ({ id, name, bundlePrice, numInCart }) => (
         </figcaption>
         <div className="bottom-wrap">
             <div className="price-wrap h5">
-                <span className="price">Price: ${ bundlePrice }</span>
+                <span className="price">Price: { bundlePrice } .kr</span>
             </div>
             
             <div className="price-wrap h5">
-                <span className="price">Price of all bundles: ${ bundlePrice * numInCart}</span>
+                <span className="price">Price of all bundles: { bundlePrice * numInCart} .kr</span>
             </div>
         </div>
     </div>

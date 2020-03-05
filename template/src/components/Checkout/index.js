@@ -10,12 +10,16 @@ class Checkout extends React.Component {
             <h1>Checkout</h1>
             <p id="checkout-msg">Do you want a delivery or an in-store pick-up?</p>
             <div className="cheoutn-btns">
+            <Link id="link-text" to="/delivery">
                 <button className="btn btn-primary btn-checkout">
-                    <Link id="link-text" to="/delivery">Delivery</Link>
+                    Delivery
                 </button>
+            </Link>
+            <Link id="link-text" to="/pickup">
                 <button className="btn btn-primary btn-checkout">
-                    <Link id="link-text" to="/pickup">Pickup</Link>
+                    Pickup
                 </button>
+            </Link>
             </div>
         </div>
     )};
