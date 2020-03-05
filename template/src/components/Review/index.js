@@ -49,12 +49,12 @@ class Review extends React.Component {
     orderComplete() {
         alert("Order confirmed. You will be directed to home page. Click OK");
 
-        let bundles = localStorage.getItem('idBundleInCart')
-        let items = localStorage.getItem('idItemInCart')
-        let total = localStorage.getItem('total')
-        let customerInfo = localStorage.getItem('customerInfo')
+        let bundles = localStorage.getItem('idBundleInCart');
+        let items = localStorage.getItem('idItemInCart');
+        let total = localStorage.getItem('total');
+        let customerInfo = localStorage.getItem('customerInfo');
         localStorage.clear();
-        localStorage.setItem('customerInfo',customerInfo)
+        localStorage.setItem('customerInfo',customerInfo);
 
 
         let postData = {
