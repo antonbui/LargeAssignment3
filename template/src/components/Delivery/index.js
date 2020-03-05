@@ -69,7 +69,6 @@ class Delivery extends React.Component {
 
       saveInformation() {
         localStorage.setItem('customerInfo', JSON.stringify(this.state.fields));
-        console.log("customerInfo saved");
       }
 
     render() {

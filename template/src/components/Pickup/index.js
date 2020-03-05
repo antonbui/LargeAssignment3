@@ -86,7 +86,6 @@ class Pickup extends React.Component {
 
       saveInformation() {
         localStorage.setItem('customerInfo', JSON.stringify(this.state.fields));
-        console.log("customerInfo saved");
       }
 
     render() {
@@ -115,11 +114,19 @@ class Pickup extends React.Component {
                 onInput={ e => this.onInput(e) }/>
             
             <input
+                  type="submit"
+                  value="Review!"
+                  className="btn btn-primary"
+                  style={{ float: 'right', marginTop: '10' }}
+                  onClick={ this.saveInformation() }
+                  onChange={()=>{}}>
+              </input>
+            {/* <input
                 type="submit"
                 value="Order!"
                 className="btn btn-primary"
                 style={{ float: 'right', marginTop: '10' }}
-                onClick={ () => this.orderComplete() } />
+                onClick={ () => this.orderComplete() } /> */}
             </Form>
         </div>
         );
