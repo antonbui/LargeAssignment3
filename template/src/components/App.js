@@ -10,6 +10,7 @@ import Cart from './Cart';
 import ProductItemDetails from './ProductItemDetails';
 import Checkout from './Checkout';
 import Delivery from './Delivery';
+import Pickup from './Pickup';
 
 const App = () => {
     return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route exact path="/bubbles/:productItemId" component={ ProductItemDetails } />
           <Route exact path="/checkout" component={ Checkout } />
           <Route exact path="/delivery" component={ Delivery } />
+          <Route exact path="/pickup" component={ Pickup } />
         </Switch>
       </Container>
     </div>

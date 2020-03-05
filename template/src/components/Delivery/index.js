@@ -2,7 +2,7 @@ import React from 'react';
 import Form from '../Form';
 import Input from '../Input';
 import toastr from 'toastr';
-import RemoteSelectItem from '../RemoteSelectItem';
+
 
 
 
@@ -125,4 +125,4 @@ class Delivery extends React.Component {
     };
 };
 
-export default Delivery
+export default Delivery;
