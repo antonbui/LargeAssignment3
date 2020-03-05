@@ -1,12 +1,12 @@
 import React from 'react';
 import ProductList from '../ProductList';
+import { NavLink } from 'react-router-dom';
 class Bubbles extends React.Component{
     state = {
         bubbles: []
     };
 
     componentDidMount() {
-        const { match: { params } } = this.props;
         fetch("http://localhost:3500/api/bubbles")
             .then((res) => res.json())
             .then((res) => this.setState({bubbles: res}));
@@ -18,10 +18,7 @@ class Bubbles extends React.Component{
             temp = JSON.parse(localStorage.getItem('idItemInCart'));
         }
         temp.push(productId);
-        // console.log("temp = " + JSON.stringify(temp));
         localStorage.setItem('idItemInCart', JSON.stringify(temp));
-        // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idItemInCart')));
-        // alert(productId);
     }
 
     render() {
@@ -33,6 +30,13 @@ class Bubbles extends React.Component{
                     bubbles={ bubbles }
                     addToCart={ productId => this.addToCart(productId) }
                 />
+                <button
+                type="button"
+                className="btn btn-primary">
+                    <NavLink
+                    exact
+                    to="/checkout">Checkout</NavLink>
+                </button>
             </div>
         );
     };
