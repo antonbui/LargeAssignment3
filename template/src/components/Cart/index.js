@@ -10,7 +10,7 @@ class Cart extends React.Component{
     };
 
     componentDidMount() {
-        // localStorage.clear();
+        console.log(window.location.href);
         this.setBubblesInCart();
         this.setBundlesInCart();
     }
@@ -19,7 +19,6 @@ class Cart extends React.Component{
         fetch("http://localhost:3500/api/bubbles")
             .then((res) => res.json())
             .then((res) => {
-                // console.log(JSON.parse(localStorage.getItem('idItemInCart')));
                 this.setState({ allBubbles: res });
                 const { total } = this.state;
                 let bubblesId = [];
@@ -47,7 +46,7 @@ class Cart extends React.Component{
         fetch("http://localhost:3500/api/bundles")
             .then((res) => res.json())
             .then((res) => {
-                console.log(JSON.parse(localStorage.getItem('idBundleInCart')));
+                // console.log(JSON.parse(localStorage.getItem('idBundleInCart')));
                 let bundlesId = [];
                 const { total, allBubbles } = this.state;
                 if(JSON.parse(localStorage.getItem('idBundleInCart')) !== null){
@@ -81,6 +80,7 @@ class Cart extends React.Component{
             fetch("http://localhost:3500/api/orders/"+customer.telephone)
                 .then((res) => res.json())
                 .then((res) => {
+                    console.log(res);
                     this.setState({total: 0})
                     localStorage.setItem('idBundleInCart', JSON.stringify(res[res.length - 1].bundles));
                     localStorage.setItem('idItemInCart', JSON.stringify(res[res.length - 1].bubbles));
@@ -90,12 +90,22 @@ class Cart extends React.Component{
         }
     }
 
-    
-    render() {
-        const { bubbles, total, bundles } = this.state;
-        return (
-            <div className="bubble-container">
-                <h1>Your shopping cart:</h1>
+    previusButton(){
+        if (window.location.href !== "http://localhost:3000/review/") {
+            return (
+                <button
+                type="button"
+                className="btn btn-primary"
+                onClick={ () => this.getPreviousOrder() }
+                >Previous order
+                </button>
+            )
+        }
+    }
+
+    checkoutButton(){
+        if (window.location.href !== "http://localhost:3000/review/") {
+            return (
                 <button
                 type="button"
                 className="btn btn-primary">
@@ -103,18 +113,23 @@ class Cart extends React.Component{
                     exact
                     to="/checkout">Proceed to checkout</NavLink>
                 </button>
+            )
+        }
+    }
+
+    
+    render() {
+        const { bubbles, total, bundles } = this.state;
+        return (
+            <div className="bubble-container">
+                <h1>Your shopping cart:</h1>
+                { this.checkoutButton() }
+                { this.previusButton() }
                 <CartList
                     bubbles={ bubbles }
                     total={ total }
                     bundles={ bundles }
                 />
-                
-                <button
-                type="button"
-                className="btn btn-primary"
-                onClick={ () => this.getPreviousOrder() }
-                >Previous order
-                </button>
             </div>
         );
     };

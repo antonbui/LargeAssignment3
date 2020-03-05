@@ -4,6 +4,7 @@ import Input from '../Input';
 import toastr, { info } from 'toastr';
 import { Link } from 'react-router-dom';
 import ProductList from '../CartList'
+import Cart from '../Cart';
 
 
 
@@ -78,61 +79,18 @@ class Review extends React.Component {
         <div>
             <div><h1>Review</h1></div>
             <div><p>Go back to edit</p></div>
-            <Form >
-            <Input
-                label="Name:"
-                type="text"
-                value={ name }
-                disabled="disabled"
-                />
-            <Input
-                type="text"
-                value={ address }
-                name="address"
-                htmlId="address"
-                label="Address:"/>
-            <Input
-                type="text"
-                value={ telephone }
-                name="telephone"
-                htmlId="telephone"
-                disabled="disabled"
-                label="Telephone no.:"/>
-                <Input
-                type="text"
-                value={ city }
-                name="city"
-                htmlId="city"
-                disabled="disabled"
-                label="City:"/>
-                <Input
-                type="text"
-                value={ postalcode }
-                name="postalcode"
-                htmlId="postalcode"
-                disabled="disabled"
-                label="Postal code:"/>
-
-            {/* <Link to={`/delivery/`}>
-              <input
-                  type="submit"
-                  value="Back!"
-                  className="btn btn-primary"
-                  style={{ float: 'right', marginTop: '10' }}
-                  onClick={ this.saveInformation() }
-                />
-            </Link> */}
-            <Link to={`/review/`}>
-            <input
-                value="Order!"
+            <div><p>Name: { name }</p></div>
+            <div><p>Address: { address }</p></div>
+            <div><p>Phone number: { telephone }</p></div>
+            <div><p>City: { city }</p></div>
+            <div><p>Postalcode: { postalcode }</p></div>
+            <Cart></Cart>
+            <button
+                type="button"
                 className="btn btn-primary"
-                style={{ float: 'right', marginTop: '10' }}
-                onClick={ () => { this.orderComplete()} }
-                />
-            </Link>
-
-            </Form>
-            <p>Total price: { localStorage.getItem('total') }</p>
+                onClick={ () => this.orderComplete }>
+            Order!
+            </button>
         </div>
         );
     };
