@@ -10,6 +10,7 @@ class Cart extends React.Component{
     };
 
     componentDidMount() {
+        // localStorage.clear()
         this.setBubblesInCart();
         this.setBundlesInCart();
     }
@@ -73,12 +74,14 @@ class Cart extends React.Component{
     }
 
     getPreviousOrder() {
-        let customerTelephone = JSON.parse(localStorage.getItem('customerInfo')).telephone
+        let data = JSON.parse(localStorage.getItem('customerInfo'))
+        let customerTelephone = data.telephone
+        console.log("customerTelephone",customerTelephone);
         fetch("http://localhost:3500/api/orders/"+customerTelephone)
             .then((res) => res.json())
             .then((res) => {
-                localStorage.setItem('idBundleInCart', res.bundles);
-                localStorage.setItem('idItemInCart', res.bubbles);
+                localStorage.setItem('idItemInCart', JSON.stringify(res.bubbles));
+                localStorage.setItem('idBundleInCart', JSON.stringify(res.bundles));
                 this.setBubblesInCart();
                 this.setBundlesInCart();
             });

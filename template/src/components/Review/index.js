@@ -36,9 +36,14 @@ class Review extends React.Component {
       }
 
     sendPost(postData) {
+        // fetch('http://localhost:3500/api/orders/' + postData.customerInfo.telephone , requestOptions)
+        //     .then(response => response.json());
+        // if (data != null) {
+
+        // }
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
-            method: 'POST',
+            method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData)
         };
