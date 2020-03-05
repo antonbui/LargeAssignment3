@@ -1,6 +1,6 @@
 import React from 'react';
 import CartList from '../CartList';
-import BundleList from '../BundleList';
+import { NavLink } from 'react-router-dom';
 class Cart extends React.Component{
     state = {
         allBubbles: [],
@@ -82,6 +82,13 @@ class Cart extends React.Component{
                     total={ total }
                     bundles={ bundles }
                 />
+                <button
+                type="button"
+                className="btn btn-primary">
+                    <NavLink
+                    exact
+                    to="/checkout">Checkout</NavLink>
+                </button>
             </div>
         );
     };

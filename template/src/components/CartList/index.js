@@ -1,7 +1,6 @@
 import React from 'react';
 import CartItem from '../CartItem';
 import CartBundle from '../CartBundle';
-import { NavLink } from 'react-router-dom';
 
 const ProductList = ({ bubbles, total, bundles }) => (
     <div>
@@ -32,13 +31,6 @@ const ProductList = ({ bubbles, total, bundles }) => (
             <p>
                 Total is: { total }
             </p>
-            <button
-          type="button"
-          className="btn btn-primary">
-            <NavLink
-            exact
-            to="/checkout">Checkout</NavLink>
-            </button>
         </div>
     </div>
 )

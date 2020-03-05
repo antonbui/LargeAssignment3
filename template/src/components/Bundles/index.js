@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BundleList from '../BundleList';
+import { NavLink } from 'react-router-dom';
 class Bundles extends React.Component{
     state = {
         bundles: [],
@@ -42,12 +43,18 @@ class Bundles extends React.Component{
         return (
         <div>
             <h1>Bundles</h1>
-            <p>Here comes the subpage for bundles</p>
             <BundleList
                 bundles={ bundles } 
                 bubbles={ bubbles }
                 addToCart={ productId => this.addToCart(productId) }
                 />
+            <button
+                type="button"
+                className="btn btn-primary">
+                    <NavLink
+                    exact
+                    to="/checkout">Checkout</NavLink>
+                </button>
         </div>
         );
 
