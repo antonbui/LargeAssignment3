@@ -17,7 +17,7 @@ class Delivery extends React.Component {
         },
         errors: {
             nameError: '',
-            adressError: '',
+            addressError: '',
             cityError: '',
             telephoneError: '',
             postalError: '',
@@ -43,11 +43,20 @@ class Delivery extends React.Component {
       }
 
       validateForm() {
-        const { name } = this.state.fields;
+        const { name, address, telephone, city, postalcode } = this.state.fields;
         const errors = {};
+        var  phonePattern = /^[0-9]{3}-?\s?[0-9]{4}$/;
+        var  postalPattern = /^[1-9][0-9]{2}$/;
+        var phoneTest = phonePattern.test(telephone);
+        var postalTest = postalPattern.test(postalcode);
     
-        if (name === '') { errors.nameError = 'Name is required.'; }
+        if (name === '') { errors.nameError = 'Name is required!'; }
+        if (address === '') { errors.addressError = 'Address is required!'; }
+        if (phoneTest === false) { errors.telephoneError = 'Telephone number is not valid'; }
+        if (city === '') { errors.cityError = 'City is required!'; }
+        if (postalTest === false) { errors.postalError = 'Postal code is not valid'; }
         
+
         if (Object.keys(errors).length > 0) {
           this.setState({ ...this.state.errors, errors });
           return false;
@@ -58,7 +67,7 @@ class Delivery extends React.Component {
 
     render() {
         const { name, address, telephone, city, postalcode } = this.state.fields;
-        const { nameError } = this.state.errors
+        const { nameError, addressError, telephoneError, cityError, postalError } = this.state.errors
         return (
         <div>
             <div><h1>Delivery</h1></div>
@@ -77,6 +86,7 @@ class Delivery extends React.Component {
                 name="address"
                 htmlId="address"
                 label="Address:"
+                errorMessage={ addressError }
                 onInput={ e => this.onInput(e) }/>
             <Input
                 type="text"
@@ -84,6 +94,7 @@ class Delivery extends React.Component {
                 name="telephone"
                 htmlId="telephone"
                 label="Telephone no.:"
+                errorMessage={ telephoneError }
                 onInput={ e => this.onInput(e) }/>
                 <Input
                 type="text"
@@ -91,6 +102,7 @@ class Delivery extends React.Component {
                 name="city"
                 htmlId="city"
                 label="City:"
+                errorMessage={ cityError }
                 onInput={ e => this.onInput(e) }/>
                 <Input
                 type="text"
@@ -98,21 +110,8 @@ class Delivery extends React.Component {
                 name="postalcode"
                 htmlId="postalcode"
                 label="Postal code:"
+                errorMessage={ postalError }
                 onInput={ e => this.onInput(e) }/>
-            {/* <RemoteSelectItem
-                onSelect={ e => this.onInput(e) }
-                value={ city }
-                name="city"
-                defaultOption="-- No city is selected --"
-                getData={ this.getCities.bind(null, val => ({ value: val.city, label: val.city })) }
-                 /> */}
-            {/* <RemoteSelectItem
-                onSelect={ e => this.onInput(e) }
-                value={ region }
-                name="region"
-                defaultOption="-- No region is selected --"
-                getData={ countryService.getRegions.bind(null, country, val => ({ value: val.region, label: val.region })) }
-                isDisabled={ country === '' } /> */}
             
             <input
                 type="submit"

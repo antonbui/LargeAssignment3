@@ -10,17 +10,11 @@ class Pickup extends React.Component {
     state = {
         fields: {
             name: "",
-            address: "", 
-            city: "",
             telephone: "",
-            postalcode: "",
         },
         errors: {
             nameError: '',
-            adressError: '',
-            cityError: '',
             telephoneError: '',
-            postalError: '',
           },
     };
 
@@ -43,10 +37,13 @@ class Pickup extends React.Component {
       }
 
       validateForm() {
-        const { name } = this.state.fields;
+        const { name, telephone } = this.state.fields;
         const errors = {};
+        var  phonePattern = /^[0-9]{3}-?\s?[0-9]{4}$/;
+        var phoneTest = phonePattern.test(telephone);
     
         if (name === '') { errors.nameError = 'Name is required.'; }
+        if (phoneTest === false) { errors.telephoneError = 'Telephone number is not valid'; }
         
         if (Object.keys(errors).length > 0) {
           this.setState({ ...this.state.errors, errors });
@@ -57,8 +54,8 @@ class Pickup extends React.Component {
       }
 
     render() {
-        const { name, address, telephone, city, postalcode } = this.state.fields;
-        const { nameError } = this.state.errors
+        const { name, telephone } = this.state.fields;
+        const { nameError, telephoneError } = this.state.errors
         return (
         <div>
             <div><h1>Delivery</h1></div>
@@ -78,6 +75,7 @@ class Pickup extends React.Component {
                 name="telephone"
                 htmlId="telephone"
                 label="Telephone no.:"
+                errorMessage={ telephoneError }
                 onInput={ e => this.onInput(e) }/>
             
             <input
