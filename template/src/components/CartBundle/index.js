@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CartBundle = ({ id, name, bundlePrice, numInCart }) => (
     <div className="card card-product">
@@ -17,6 +18,17 @@ const CartBundle = ({ id, name, bundlePrice, numInCart }) => (
         </div>
     </div>
 );
-  
+
+CartBundle.propTypes = {
+    // This is the id of the bundle
+    id: PropTypes.number.isRequired,
+    // this is the name of the bundle
+    name: PropTypes.string.isRequired,
+    // this is the combined price of all the bubbles in the bundle
+    sum: PropTypes.number,
+    // this is haw many of this type of bundle is in the cart
+    numInCart: PropTypes.func.isRequired,
+};
+
 export default CartBundle;
   
