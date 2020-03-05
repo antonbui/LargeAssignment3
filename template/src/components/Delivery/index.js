@@ -155,10 +155,6 @@ class Delivery extends React.Component {
               </input>
             </Link>
             
-            {/* <button
-              type="button"
-              className="btn btn-primary"
-              onClick={ }>Review</button> */}
             </Form>
         </div>
         );
