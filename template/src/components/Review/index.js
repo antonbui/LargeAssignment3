@@ -118,21 +118,21 @@ class Review extends React.Component {
                 disabled="disabled"
                 label="Postal code:"/>
 
-            {/* <Link to={`/delivery/`}>
-              <input
-                  type="submit"
-                  value="Back!"
-                  className="btn btn-primary"
-                  style={{ float: 'right', marginTop: '10' }}
-                  onClick={ this.saveInformation() }
-                />
-            </Link> */}
             <Link to={`/review/`}>
             <input
                 value="Order!"
                 className="btn btn-primary"
                 style={{ float: 'right', marginTop: '10' }}
                 onClick={ () => { this.orderComplete()} }
+                />
+            </Link>
+            <Link to={`/delivery/`}>
+              <input
+                  type="submit"
+                  value="Back!"
+                  className="btn btn-primary"
+                  style={{ float: 'right', marginTop: '10' }}
+                  onClick={ this.saveInformation() }
                 />
             </Link>
 
