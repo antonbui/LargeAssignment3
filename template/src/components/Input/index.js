@@ -23,13 +23,13 @@ const Input = ({ value, onInput, type, errorMessage, label, name, htmlId }) => (
 
 Input.propTypes = {
     /* The value provided to the input HTML tag */
-    value: PropTypes.string.isRequired,
-    onInput: PropTypes.func.isRequired,
+    value: PropTypes.string,
+    onInput: PropTypes.func,
     type: PropTypes.oneOf([ 'text', 'password', 'submit', 'email', 'number' ]),
     errorMessage: PropTypes.string,
     label: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    htmlId: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    htmlId: PropTypes.string,
 }
 
 export default Input;
