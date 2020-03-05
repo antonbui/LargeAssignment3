@@ -93,7 +93,7 @@ class Review extends React.Component {
             <button
                 type="button"
                 className="btn btn-primary"
-                onClick={ () => this.orderComplete }>
+                onClick={ () => this.orderComplete() }>
             Order!
             </button>
         </div>
