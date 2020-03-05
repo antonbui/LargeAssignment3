@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const ProductItem = ({ id, name, description, price, image, addToCart }) => (
     <div className="card card-product">
@@ -18,7 +19,22 @@ const ProductItem = ({ id, name, description, price, image, addToCart }) => (
           className="btn btn-primary"
           onClick={ () => addToCart(id) }>Add to cart</button>
     </div>
-  );
+);
   
-  export default ProductItem;
+ProductItem.propTypes = {
+    // This is the id of the bubble
+    id: PropTypes.number.isRequired,
+    // this is the name of the bubble
+    name: PropTypes.string.isRequired,
+    // this is the description of the bubble
+    description: PropTypes.string.isRequired,
+    // this is the price of the bubble
+    price: PropTypes.number.isRequired,
+    // this is a sting that is a link to the image of the bubble
+    image: PropTypes.string.isRequired,
+    // This is the function that is called when the add to cart button is pushed
+    addToCart: PropTypes.func.isRequired,
+};
+
+export default ProductItem;
   

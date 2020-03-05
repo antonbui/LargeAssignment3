@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 class ProductItemDetails extends React.Component {
     state = {
@@ -28,6 +29,16 @@ class ProductItemDetails extends React.Component {
             </div>
         );
     };
+};
+
+ProductItemDetails.propTypes = {
+    // This is an object that contains the id of the selected bubble
+    // by getting it from the url
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            productItemId: PropTypes.string.isRequired,
+        })
+    }).isRequired,
 };
 
 export default ProductItemDetails;
