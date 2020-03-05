@@ -123,8 +123,10 @@ class Cart extends React.Component{
         return (
             <div className="bubble-container">
                 <h1>Your shopping cart:</h1>
+                <div>
                 { this.checkoutButton() }
                 { this.previusButton() }
+                </div>
                 <CartList
                     bubbles={ bubbles }
                     total={ total }
