@@ -115,18 +115,12 @@ class Pickup extends React.Component {
             
             <input
                   type="submit"
-                  value="Review!"
+                  value="Review order"
                   className="btn btn-primary"
                   style={{ float: 'right', marginTop: '10' }}
                   onClick={ this.saveInformation() }
                   onChange={()=>{}}>
               </input>
-            {/* <input
-                type="submit"
-                value="Order!"
-                className="btn btn-primary"
-                style={{ float: 'right', marginTop: '10' }}
-                onClick={ () => this.orderComplete() } /> */}
             </Form>
         </div>
         );
