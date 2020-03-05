@@ -35,6 +35,17 @@ class Review extends React.Component {
         console.log("customerInfo saved");
       }
 
+    sendPost(postData) {
+        // Simple POST request with a JSON body using fetch
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(postData)
+        };
+        fetch('http://localhost:3500/api/orders/' + postData.customerInfo.telephone , requestOptions)
+            .then(response => response.json());
+    }
+
     orderComplete() {
         alert("Order confirmed. You will be directed to home page. Click OK");
 
@@ -43,24 +54,21 @@ class Review extends React.Component {
         let total = localStorage.getItem('total')
         let customerInfo = localStorage.getItem('customerInfo')
         localStorage.clear();
-        // localStorage.setItem('idBundleInCart',null)
-        // localStorage.setItem('idItemInCart',null)
-        // localStorage.setItem('total',0)
         localStorage.setItem('customerInfo',customerInfo)
 
 
-        // let postData = {
-        //     bundles: bundles,
-        //     bubbles: items,
-        //     total: total,
-        //     customerInfo: customerInfo
-        // }
-
-        // console.log("postData: " + postData);
+        let postData = {
+            bundles: JSON.parse(bundles),
+            bubbles: JSON.parse(items),
+            total: total,
+            customerInfo: JSON.parse(customerInfo)
+        }
+        console.log(postData);
+        this.sendPost(postData)
 
         setTimeout(() => {
             this.props.history.push('/Home');
-        },5000)
+        },500)
     }
 
     render() {
