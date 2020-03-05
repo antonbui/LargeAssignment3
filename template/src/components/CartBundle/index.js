@@ -27,7 +27,7 @@ CartBundle.propTypes = {
     // this is the combined price of all the bubbles in the bundle
     sum: PropTypes.number,
     // this is haw many of this type of bundle is in the cart
-    numInCart: PropTypes.func.isRequired,
+    numInCart: PropTypes.number.isRequired,
 };
 
 export default CartBundle;

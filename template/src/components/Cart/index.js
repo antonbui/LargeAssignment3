@@ -10,6 +10,7 @@ class Cart extends React.Component{
     };
 
     componentDidMount() {
+        // localStorage.clear();
         this.setBubblesInCart();
         this.setBundlesInCart();
     }
@@ -18,10 +19,11 @@ class Cart extends React.Component{
         fetch("http://localhost:3500/api/bubbles")
             .then((res) => res.json())
             .then((res) => {
+                // console.log(JSON.parse(localStorage.getItem('idItemInCart')));
                 this.setState({ allBubbles: res });
                 const { total } = this.state;
                 let bubblesId = [];
-                if(localStorage.getItem('idItemInCart') !== null){
+                if(JSON.parse(localStorage.getItem('idItemInCart')) !== null){
                     bubblesId = JSON.parse(localStorage.getItem('idItemInCart'));
                 }
                 let totalP = total;
@@ -45,9 +47,10 @@ class Cart extends React.Component{
         fetch("http://localhost:3500/api/bundles")
             .then((res) => res.json())
             .then((res) => {
+                console.log(JSON.parse(localStorage.getItem('idBundleInCart')));
                 let bundlesId = [];
                 const { total, allBubbles } = this.state;
-                if(localStorage.getItem('idBundleInCart') !== null){
+                if(JSON.parse(localStorage.getItem('idBundleInCart')) !== null){
                     bundlesId = JSON.parse(localStorage.getItem('idBundleInCart'));
                 }
                 let totalP = total;
@@ -71,6 +74,22 @@ class Cart extends React.Component{
                 this.setState({bundles: res});
             });
     }
+
+    getPreviousOrder() {
+        if(localStorage.getItem('customerInfo') !== null){
+            let customer = JSON.parse(localStorage.getItem('customerInfo'));
+            fetch("http://localhost:3500/api/orders/"+customer.telephone)
+                .then((res) => res.json())
+                .then((res) => {
+                    this.setState({total: 0})
+                    localStorage.setItem('idBundleInCart', JSON.stringify(res[res.length - 1].bundles));
+                    localStorage.setItem('idItemInCart', JSON.stringify(res[res.length - 1].bubbles));
+                    this.setBubblesInCart();
+                    this.setBundlesInCart();
+                });
+        }
+    }
+
     
     render() {
         const { bubbles, total, bundles } = this.state;
@@ -90,6 +109,12 @@ class Cart extends React.Component{
                     bundles={ bundles }
                 />
                 
+                <button
+                type="button"
+                className="btn btn-primary"
+                onClick={ () => this.getPreviousOrder() }
+                >Previous order
+                </button>
             </div>
         );
     };

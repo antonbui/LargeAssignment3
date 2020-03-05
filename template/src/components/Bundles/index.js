@@ -29,7 +29,8 @@ class Bundles extends React.Component{
 
     addToCart(productId) {
         let temp = [];
-        if(localStorage.getItem('idBundleInCart') !== null){
+        console.log(JSON.parse(localStorage.getItem('idBundleInCart')))
+        if(JSON.parse(localStorage.getItem('idBundleInCart')) !== null){
             temp = JSON.parse(localStorage.getItem('idBundleInCart'));
         }
         temp.push(productId);
