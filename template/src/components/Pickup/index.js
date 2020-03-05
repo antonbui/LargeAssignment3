@@ -33,6 +33,7 @@ class Pickup extends React.Component {
         } else {
           console.log(this.state.fields);
           toastr.success('The form was successfully submitted!', 'Success!');
+          this.props.history.push("/review/");
         }
       }
 
@@ -51,6 +52,11 @@ class Pickup extends React.Component {
         }
     
         return true;
+      }
+
+      saveInformation() {
+        localStorage.setItem('customerInfo', JSON.stringify(this.state.fields));
+        console.log("customerInfo saved");
       }
 
     render() {

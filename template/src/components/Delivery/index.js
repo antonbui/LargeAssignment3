@@ -56,7 +56,6 @@ class Delivery extends React.Component {
         } else {
           console.log(this.state.fields);
           toastr.success('The form was successfully submitted!', 'Success!');
-          console.log("something happened!")
           this.props.history.push("/review/");
         }
       }
@@ -103,7 +102,8 @@ class Delivery extends React.Component {
                 htmlId="name"
                 label="Name:"
                 errorMessage={ nameError }
-                onInput={ e => this.onInput(e) }/>
+                onInput={ e => this.onInput(e) }
+                onChange={()=>{}}/>
             <Input
                 type="text"
                 value={ address }
@@ -111,7 +111,8 @@ class Delivery extends React.Component {
                 htmlId="address"
                 label="Address:"
                 errorMessage={ addressError }
-                onInput={ e => this.onInput(e) }/>
+                onInput={ e => this.onInput(e) }
+                onChange={()=>{}}/>
             <Input
                 type="text"
                 value={ telephone }
@@ -119,7 +120,8 @@ class Delivery extends React.Component {
                 htmlId="telephone"
                 label="Telephone no.:"
                 errorMessage={ telephoneError }
-                onInput={ e => this.onInput(e) }/>
+                onInput={ e => this.onInput(e) }
+                onChange={()=>{}}/>
                 <Input
                 type="text"
                 value={ city }
@@ -127,7 +129,8 @@ class Delivery extends React.Component {
                 htmlId="city"
                 label="City:"
                 errorMessage={ cityError }
-                onInput={ e => this.onInput(e) }/>
+                onInput={ e => this.onInput(e) }
+                onChange={()=>{}}/>
                 <Input
                 type="text"
                 value={ postalcode }
@@ -135,20 +138,23 @@ class Delivery extends React.Component {
                 htmlId="postalcode"
                 label="Postal code:"
                 errorMessage={ postalError }
-                onInput={ e => this.onInput(e) }/>
+                onInput={ e => this.onInput(e) }
+                onChange={()=>{}}/>
                 
               <input
                   type="submit"
                   value="Review!"
                   className="btn btn-primary"
                   style={{ float: 'right', marginTop: '10' }}
-                  onClick={ this.saveInformation() }>
+                  onClick={ this.saveInformation() }
+                  onChange={()=>{}}>
               </input>
             <Link to={`/checkout/`}>
               <input
                   value="Back!"
                   className="btn btn-primary"
                   style={{ float: 'right', marginTop: '10' }}
+                  onChange={()=>{}}
                   // onClick={ }
                   >
               </input>
