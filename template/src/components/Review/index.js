@@ -43,7 +43,7 @@ class Review extends React.Component {
         // }
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
-            method: 'PUT',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData)
         };

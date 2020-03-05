@@ -10,7 +10,7 @@ class Cart extends React.Component{
     };
 
     componentDidMount() {
-        // localStorage.clear()
+        // localStorage.clear() 
         this.setBubblesInCart();
         this.setBundlesInCart();
     }
