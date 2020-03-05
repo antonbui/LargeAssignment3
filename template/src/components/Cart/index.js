@@ -10,7 +10,6 @@ class Cart extends React.Component{
     };
 
     componentDidMount() {
-        console.log(window.location.href);
         this.setBubblesInCart();
         this.setBundlesInCart();
     }
@@ -46,7 +45,6 @@ class Cart extends React.Component{
         fetch("http://localhost:3500/api/bundles")
             .then((res) => res.json())
             .then((res) => {
-                // console.log(JSON.parse(localStorage.getItem('idBundleInCart')));
                 let bundlesId = [];
                 const { total, allBubbles } = this.state;
                 if(JSON.parse(localStorage.getItem('idBundleInCart')) !== null){
@@ -80,7 +78,6 @@ class Cart extends React.Component{
             fetch("http://localhost:3500/api/orders/"+customer.telephone)
                 .then((res) => res.json())
                 .then((res) => {
-                    console.log(res);
                     this.setState({total: 0})
                     localStorage.setItem('idBundleInCart', JSON.stringify(res[res.length - 1].bundles));
                     localStorage.setItem('idItemInCart', JSON.stringify(res[res.length - 1].bubbles));
@@ -116,7 +113,6 @@ class Cart extends React.Component{
             )
         }
     }
-
     
     render() {
         const { bubbles, total, bundles } = this.state;
