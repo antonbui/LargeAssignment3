@@ -21,8 +21,6 @@ class Cart extends React.Component{
                 this.setState({ allBubbles: res });
                 const { total } = this.state;
                 let bubblesId = [];
-                // console.log("bubbles = " + this.state.bubbles);
-                // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idItemInCart')));
                 if(localStorage.getItem('idItemInCart') !== null){
                     bubblesId = JSON.parse(localStorage.getItem('idItemInCart'));
                 }
@@ -49,8 +47,6 @@ class Cart extends React.Component{
             .then((res) => {
                 let bundlesId = [];
                 const { total, allBubbles } = this.state;
-                // console.log("bubbles = " + this.state.bubbles);
-                // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idItemInCart')));
                 if(localStorage.getItem('idBundleInCart') !== null){
                     bundlesId = JSON.parse(localStorage.getItem('idBundleInCart'));
                 }
@@ -68,7 +64,6 @@ class Cart extends React.Component{
                         res[id - 1].inCart = 1;
                     }
                     totalP += res[id - 1].bundlePrice;
-                    // console.log(res[id - 1]);
                 });
                 localStorage.setItem('total', totalP);
                 this.setState({total: totalP});

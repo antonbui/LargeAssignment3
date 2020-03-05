@@ -8,13 +8,23 @@ class Bundles extends React.Component{
 
     componentDidMount() {
         const { match: { params } } = this.props;
-        fetch("http://localhost:3500/api/bundles")
-            .then((res) => res.json())
-            .then((res) => this.setState({bundles: res}));
-
         fetch("http://localhost:3500/api/bubbles")
             .then((res) => res.json())
             .then((res) => this.setState({bubbles: res}));
+        fetch("http://localhost:3500/api/bundles")
+            .then((res) => res.json())
+            .then((res) => {
+                const { bubbles } = this.state;
+                res.forEach(bundle => {
+                    if(!(bundle.hasOwnProperty("bundlePrice"))){
+                        bundle.bundlePrice = 0;
+                        bundle.items.forEach(bubbleId => {
+                            bundle.bundlePrice += bubbles[bubbleId - 1].price;
+                        })
+                    }
+                });
+                this.setState({bundles: res});
+            });
     }
 
     addToCart(productId) {
@@ -23,10 +33,7 @@ class Bundles extends React.Component{
             temp = JSON.parse(localStorage.getItem('idBundleInCart'));
         }
         temp.push(productId);
-        // console.log("temp = " + JSON.stringify(temp));
         localStorage.setItem('idBundleInCart', JSON.stringify(temp));
-        // console.log("im in local storage id = " + JSON.parse(localStorage.getItem('idBundleInCart')));
-        // alert(productId);
     }
     
 
