@@ -5,9 +5,6 @@ import toastr from 'toastr';
 import { Link } from 'react-router-dom';
 import Review from '../Review';
 
-
-
-
 class Delivery extends React.Component {
     state = {
         fields: {
@@ -27,18 +24,6 @@ class Delivery extends React.Component {
     };
     componentDidMount() {
       this.setState({ fields: JSON.parse(localStorage.getItem('customerInfo'))})
-      // if (localStorage.getItem('customerInfo') != null) {
-      //   console.log("IS NULL");
-      //   var data = JSON.parse(localStorage.getItem('customerInfo'))
-      //   console.log("DATA: " + data);
-      //   if (data.name != "") {
-      //     console.log("Name NOT EMPTY");
-      //     this.setState({ fields: JSON.parse(localStorage.getItem('customerInfo'))})
-      //   }
-
-      //   console.log(this.state.fields.name);
-      // }
-
     }
 
     onInput(e) {
@@ -74,7 +59,6 @@ class Delivery extends React.Component {
         if (city === '') { errors.cityError = 'City is required!'; }
         if (postalTest === false) { errors.postalError = 'Postal code is not valid'; }
         
-
         if (Object.keys(errors).length > 0) {
           this.setState({ ...this.state.errors, errors });
           return false;

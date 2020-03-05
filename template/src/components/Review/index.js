@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom';
 import ProductList from '../CartList'
 import Cart from '../Cart';
 
-
-
-
 class Review extends React.Component {
     state = {
         fields: {
@@ -33,15 +30,9 @@ class Review extends React.Component {
 
     saveInformation() {
         localStorage.setItem('customerInfo', JSON.stringify(this.state.fields));
-        console.log("customerInfo saved");
       }
 
     sendPost(postData) {
-        // fetch('http://localhost:3500/api/orders/' + postData.customerInfo.telephone , requestOptions)
-        //     .then(response => response.json());
-        // if (data != null) {
-
-        // }
         // Simple POST request with a JSON body using fetch
         const requestOptions = {
             method: 'POST',
@@ -62,14 +53,12 @@ class Review extends React.Component {
         localStorage.clear();
         localStorage.setItem('customerInfo',customerInfo);
 
-
         let postData = {
             bundles: JSON.parse(bundles),
             bubbles: JSON.parse(items),
             total: total,
             customerInfo: JSON.parse(customerInfo)
         }
-        console.log(postData);
         this.sendPost(postData)
 
         setTimeout(() => {
@@ -93,7 +82,7 @@ class Review extends React.Component {
             <button
                 type="button"
                 className="btn btn-primary"
-                onClick={ () => this.orderComplete }>
+                onClick={ () => this.orderComplete() }>
             Order!
             </button>
         </div>
