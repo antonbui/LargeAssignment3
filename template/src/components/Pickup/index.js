@@ -3,9 +3,6 @@ import Form from '../Form';
 import Input from '../Input';
 import toastr from 'toastr';
 
-
-
-
 class Pickup extends React.Component {
     state = {
         fields: {
@@ -52,6 +49,39 @@ class Pickup extends React.Component {
     
         return true;
       }
+      sendPost(postData) {
+          // Simple POST request with a JSON body using fetch
+          const requestOptions = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(postData)
+          };
+          fetch('http://localhost:3500/api/orders/' + postData.customerInfo.telephone , requestOptions)
+              .then(response => response.json());
+      }
+      
+      orderComplete() {
+        alert("Order confirmed. You will be directed to home page. Click OK");
+
+        let bundles = localStorage.getItem('idBundleInCart');
+        let items = localStorage.getItem('idItemInCart');
+        let total = localStorage.getItem('total');
+        let customerInfo = localStorage.getItem('customerInfo');
+        localStorage.clear();
+        localStorage.setItem('customerInfo',customerInfo);
+
+        let postData = {
+            bundles: JSON.parse(bundles),
+            bubbles: JSON.parse(items),
+            total: total,
+            customerInfo: JSON.parse(customerInfo)
+        }
+        this.sendPost(postData)
+
+        setTimeout(() => {
+            this.props.history.push('/Home');
+        },500)
+    }
 
     render() {
         const { name, telephone } = this.state.fields;
@@ -82,7 +112,8 @@ class Pickup extends React.Component {
                 type="submit"
                 value="Order!"
                 className="btn btn-primary"
-                style={{ float: 'right', marginTop: '10' }} />
+                style={{ float: 'right', marginTop: '10' }}
+                onClick={ () => this.orderComplete() } />
             </Form>
         </div>
         );
