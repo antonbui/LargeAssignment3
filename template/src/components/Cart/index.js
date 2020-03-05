@@ -71,6 +71,19 @@ class Cart extends React.Component{
                 this.setState({bundles: res});
             });
     }
+
+    getPreviousOrder() {
+        let customerTelephone = JSON.parse(localStorage.getItem('customerInfo')).telephone
+        fetch("http://localhost:3500/api/orders/"+customerTelephone)
+            .then((res) => res.json())
+            .then((res) => {
+                localStorage.setItem('idBundleInCart', res.bundles);
+                localStorage.setItem('idItemInCart', res.bubbles);
+                this.setBubblesInCart();
+                this.setBundlesInCart();
+            });
+    }
+
     
     render() {
         const { bubbles, total, bundles } = this.state;
@@ -88,6 +101,12 @@ class Cart extends React.Component{
                     <NavLink
                     exact
                     to="/checkout">Checkout</NavLink>
+                </button>
+                <button
+                type="button"
+                className="btn btn-primary"
+                onClick={ () => this.getPreviousOrder() }
+                >Previous order
                 </button>
             </div>
         );
