@@ -10,7 +10,7 @@ const BundleItem = ({ id, name, sum, addToCart}) => (
         </figcaption>
         <div className="bottom-wrap">
             <div className="price-wrap h5">
-                <span className="price">Total price: ${ sum }</span>
+                <span className="price">Total price: { sum } kr.</span>
             </div>
         </div>
         <button

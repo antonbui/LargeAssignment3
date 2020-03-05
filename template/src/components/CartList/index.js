@@ -17,8 +17,6 @@ const CartList = ({ bubbles, total, bundles }) => (
                     numInCart={ b.inCart }
                 />
         )}
-        </div>
-        <div className="bubble-list">
         { bundles.map(b => 
                 <CartBundle 
                     key={ b.id }
@@ -30,9 +28,9 @@ const CartList = ({ bubbles, total, bundles }) => (
         )}
         </div>
         <div>
-            <p>
-                Total is: { total }
-            </p>
+            <h3>
+                Your total is: { total } kr.
+            </h3>
         </div>
     </div>
 )

@@ -40,20 +40,21 @@ class Bundles extends React.Component{
     render() {
         const { bundles, bubbles } = this.state;
         return (
-        <div>
+        <div className="bundle-container">
             <h1>Bundles</h1>
-            <BundleList
-                bundles={ bundles } 
-                bubbles={ bubbles }
-                addToCart={ productId => this.addToCart(productId) }
-                />
             <button
                 type="button"
                 className="btn btn-primary">
                     <NavLink
                     exact
-                    to="/checkout">Checkout</NavLink>
+                    to="/checkout">Proceed to checkout</NavLink>
                 </button>
+            <BundleList
+                bundles={ bundles } 
+                bubbles={ bubbles }
+                addToCart={ productId => this.addToCart(productId) }
+                />
+            
         </div>
         );
 

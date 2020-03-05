@@ -5,7 +5,20 @@
     width: 2.5em;
 }
 
+.container {
+    margin-bottom: 50px;
+}
+
 .bubble-container {
+    margin-top: 50px;
+}
+
+.btn {
+    margin: 20px 10px 10px 10px;
+    float: right;
+}
+
+.bundle-container {
     margin-top: 50px;
 }
 
@@ -32,13 +45,13 @@ ul {
 }
 
 li a {
-    color: rgb(250, 217, 217) !important;  
+    color: white !important;
+    
 }
 
 ul.navlinks li {
     display: inline-block;
     padding-right: 10px;
-    color: white;
     vertical-align: middle;
     font-size: x-large;
 }
@@ -107,4 +120,18 @@ ul.navlinks li {
 
 .btn-primary a {
     color: white;
+}
+
+.checkout-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-checkout {
+    width: 48%;
+    float: unset;
+}
+
+#checkout-msg {
+    margin: ;
 }

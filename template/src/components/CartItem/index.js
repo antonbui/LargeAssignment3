@@ -10,11 +10,11 @@ const CartItem = ({ id, name, price, image, numInCart }) => (
         </figcaption>
         <div className="bottom-wrap">
             <div className="price-wrap h5">
-                <span className="price">Price: ${ price }</span>
+                <span className="price">Price: { price } kr.</span>
             </div>
             
             <div className="price-wrap h5">
-                <span className="price">Price of all bubbles: ${ price * numInCart}</span>
+                <span className="price">Price of all bubbles: { price * numInCart} kr.</span>
             </div>
         </div>
     </div>
